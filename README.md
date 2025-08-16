@@ -9,13 +9,6 @@ This repository includes everything needed to analyze customer churn, from the d
 
 
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?si=S_o_kkJSe6mDmy3s&v=Gyn0tUcPSiA&feature=youtu.be" target="_blank">
-    <img src="https://img.shields.io/badge/YouTube-Video-red?logo=youtube&style=flat" alt="Watch on YouTube" />
-  </a>
-</p>
-
-
 ---
 
 ## Table of Contents
