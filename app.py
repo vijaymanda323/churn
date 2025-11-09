@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
 import pickle
 import pandas as pd
+import os
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder='templates',
+            static_folder='static',
+            static_url_path='/static')
 
 # Compatibility fix for scikit-learn version mismatch
 def patch_model(model):
@@ -14,20 +18,23 @@ def patch_model(model):
                 estimator.monotonic_cst = None
     return model
 
+# Get base directory for file paths (works in both local and Vercel)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load the pre-trained model
-model_filename1 = 'models/random_forest_model.pkl'
+model_filename1 = os.path.join(BASE_DIR, 'models', 'random_forest_model.pkl')
 with open(model_filename1, 'rb') as file:
     model_random = pickle.load(file)
     # Apply compatibility patch
     model_random = patch_model(model_random)
 
 # Load the label encoders
-model_filename2 = 'models/label_encoder.pkl'
+model_filename2 = os.path.join(BASE_DIR, 'models', 'label_encoder.pkl')
 with open(model_filename2, 'rb') as f:
     label_encoders = pickle.load(f)
 
 # Load the standard scaler
-model_filename3 = 'models/standard_scaler.pkl'
+model_filename3 = os.path.join(BASE_DIR, 'models', 'standard_scaler.pkl')
 with open(model_filename3, 'rb') as f:
     scaler = pickle.load(f)
 

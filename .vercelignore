@@ -1,0 +1,22 @@
+# Ignore files that don't need to be deployed
+data/
+notebook/
+docs/
+reports/
+powerBI/
+assets/
+*.ipynb
+*.pdf
+*.docx
+*.pbix
+*.csv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.venv
+
