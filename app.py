@@ -5,10 +5,21 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 app = Flask(__name__)
 
+# Compatibility fix for scikit-learn version mismatch
+def patch_model(model):
+    """Patch model to be compatible with newer scikit-learn versions"""
+    if hasattr(model, 'estimators_'):
+        for estimator in model.estimators_:
+            if hasattr(estimator, 'tree_') and not hasattr(estimator, 'monotonic_cst'):
+                estimator.monotonic_cst = None
+    return model
+
 # Load the pre-trained model
 model_filename1 = 'models/random_forest_model.pkl'
 with open(model_filename1, 'rb') as file:
     model_random = pickle.load(file)
+    # Apply compatibility patch
+    model_random = patch_model(model_random)
 
 # Load the label encoders
 model_filename2 = 'models/label_encoder.pkl'
