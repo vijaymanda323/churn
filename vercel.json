@@ -6,6 +6,23 @@
       "use": "@vercel/python"
     }
   ],
+  "functions": {
+    "api/index.py": {
+      "excludeFiles": [
+        "assets/**",
+        "data/**",
+        "docs/**",
+        "notebook/**",
+        "powerBI/**",
+        "reports/**",
+        "models/random_forest_model.pkl",
+        "models/standard_scaler.pkl",
+        "models/label_encoder.pkl",
+        "models/neural_network_model.json",
+        "models/neural_network_model.keras"
+      ]
+    }
+  },
   "routes": [
     {
       "src": "/static/(.*)",
