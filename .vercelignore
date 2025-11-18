@@ -10,6 +10,11 @@ assets/
 *.docx
 *.pbix
 *.csv
+models/random_forest_model.pkl
+models/standard_scaler.pkl
+models/label_encoder.pkl
+models/neural_network_model.json
+models/neural_network_model.keras
 __pycache__/
 *.pyc
 *.pyo

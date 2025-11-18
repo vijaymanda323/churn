@@ -25,6 +25,17 @@
             <p class="subtitle">AI-Powered Customer Retention Analysis</p>
         </div>
 
+        {% if error %}
+        <div class="prediction-card error-card">
+            <div class="prediction-icon">
+                <span class="icon-large">⚠️</span>
+            </div>
+            <h3 class="prediction-text">
+                <span class="prediction-danger">{{ error }}</span>
+            </h3>
+        </div>
+        {% endif %}
+
         {% if prediction is defined %}
         <div id="prediction-container" class="prediction-card">
             <div class="prediction-icon">

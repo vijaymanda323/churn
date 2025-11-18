@@ -172,6 +172,10 @@ body {
     background-clip: padding-box;
 }
 
+.error-card {
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
 .prediction-card .prediction-danger {
     color: #e74c3c;
     font-size: 1.8rem;
